@@ -65,7 +65,7 @@ server <- function(input, output, session) {
            title = "Pass Defense vs. Receiver Targets",
            subtitle = "*Points do not indicate exact field position. They are binned into left side, middle, and right side of field. 
       Points will shift horizontally within bins when inputs are changed.",
-           caption = "Data: nflscrapR, Chart: @pelky33",
+           caption = "Data: nflscrapR, Plot: @pelky33",
            shape = "Target",
            colour = "Pass") +
       theme_bw() +

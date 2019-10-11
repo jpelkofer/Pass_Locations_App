@@ -1,0 +1,12 @@
+name: Pass_Locations
+title: Pass_Locations
+username:
+account: jpelkofer33
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1319847
+bundleId: 2492490
+url: https://jpelkofer33.shinyapps.io/Pass_Locations/
+when: 1570826542.01701
+asMultiple: FALSE
+asStatic: FALSE
