@@ -1,0 +1,40 @@
+---
+title: "get_data_write_csv"
+author: "Jarrod Pelkofer"
+date: "October 17, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(janitor)
+library(nflscrapR)
+
+pbp_2019 <- season_play_by_play(2019) %>%
+  clean_names()
+
+
+```
+
+
+###Write pass plays csv
+```{r}
+pass_plays <- pbp_2019 %>%
+  filter(play_type == "Pass" & !is.na(pass_location) & air_yards >= -10) %>%
+  mutate(pass_location = replace(pass_location, pass_location == "left", 1),
+         pass_location = replace(pass_location, pass_location == "middle", 2),
+         pass_location = replace(pass_location, pass_location == "right", 3),
+         reception = as.factor(reception)) %>%
+  select(defensive_team, posteam, receiver, air_yards, pass_location, reception)
+
+write_csv(pass_plays, "pass_plays.csv")
+        
+```
